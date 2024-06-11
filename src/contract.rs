@@ -117,6 +117,7 @@ impl Contract {
             start_time: env::block_timestamp(),
             miners_proposals: LookupMap::new(b"m"),
             validators_proposals: LookupMap::new(b"v"),
+            validators_votes_to_miner: LookupMap::new(b"v"),
         };
 
         self.requests.push(new_request);
@@ -444,6 +445,8 @@ impl Contract {
             save_proposal.miner_addresses.push(addresses);
         }
 
+        self.aggregate_votes(request_id.clone(), answer_for_log.clone());
+
         let reveal_validator_log = EventLog {
             standard: "nep171".to_string(),
             version: "1.0.0".to_string(),
@@ -457,4 +460,21 @@ impl Contract {
         env::log_str(&reveal_validator_log.to_string());
         RevealValidatorResult::Success
     }
+
+    fn aggregate_votes(&mut self, request_id: String, answer: Vec<AccountId>) {
+        let complete_request = self
+            .get_request_by_id(request_id.clone())
+            .map_or_else(|| panic!("Request not found"), |request| request);
+
+        for address in answer {
+            let count = complete_request
+                .validators_votes_to_miner
+                .get(&address)
+                .unwrap_or(&0);
+            complete_request
+                .validators_votes_to_miner
+                .insert(address, count + 1);
+        }
+    }
+    //TODO: Find in the LookupMap
 }

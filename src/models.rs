@@ -54,14 +54,6 @@ pub enum RevealValidatorResult {
     Fail,
 }
 
-#[derive(BorshDeserialize, BorshSerialize, Deserialize, Serialize, Debug, Clone)]
-#[serde(crate = "near_sdk::serde")]
-pub struct MinerProposal {
-    pub proposal_hash: Hash,
-    pub answer: bool,
-    pub is_revealed: bool,
-}
-
 #[derive(BorshDeserialize, BorshSerialize, Deserialize, Serialize, Debug, Clone, PartialEq, Eq)]
 #[serde(crate = "near_sdk::serde")]
 pub enum RequestState {
@@ -71,6 +63,14 @@ pub enum RequestState {
     CommitValidators,
     RevealValidators,
     Ended,
+}
+
+#[derive(BorshDeserialize, BorshSerialize, Deserialize, Serialize, Debug, Clone)]
+#[serde(crate = "near_sdk::serde")]
+pub struct MinerProposal {
+    pub proposal_hash: Hash,
+    pub answer: bool,
+    pub is_revealed: bool,
 }
 
 #[derive(BorshDeserialize, BorshSerialize, Deserialize, Serialize, Debug)]
@@ -88,4 +88,5 @@ pub struct Request {
     pub start_time: u64,
     pub miners_proposals: LookupMap<AccountId, MinerProposal>,
     pub validators_proposals: LookupMap<AccountId, ValidatorProposal>,
+    pub validators_votes_to_miner: LookupMap<AccountId, u64>,
 }
