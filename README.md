@@ -46,6 +46,9 @@ cargo near create-dev-account
 # Deploy the contract on it
 cargo near deploy <account-id>
 ```
+## Earthmind Near Client
+
+- [Client implementation](https://github.com/hasselalcala/earthmind-near-client)
 
 ## Useful Links
 - [Rust](https://www.rust-lang.org/learn) - Documentation
