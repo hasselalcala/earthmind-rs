@@ -1,0 +1,26 @@
+use near_sdk::NearToken;
+
+pub const ACCOUNT_1: &str = "account1.near";
+pub const ACCOUNT_2: &str = "account2.near";
+pub const MINER_1: &str = "miner1.near";
+pub const MINER_2: &str = "miner2.near";
+pub const VALIDATOR_1: &str = "validator1.near";
+pub const VALIDATOR_2: &str = "validator2.near";
+pub const VALIDATOR_3: &str = "validator3.near";
+pub const DEFAULT_PROTOCOL_ACCOUNT_ID: &str = ACCOUNT_1;
+pub const DEFAULT_MINER_ACCOUNT_ID: &str = MINER_1;
+pub const DEFAULT_VALIDATOR_ACCOUNT_ID: &str = VALIDATOR_1;
+pub const DEFAULT_TIMESTAMP: u64 = 100_000_000_000;
+pub const DEFAULT_DEPOSIT: NearToken = NearToken::from_near(1);
+pub const DEFAULT_DEPOSIT_MINER: NearToken = NearToken::from_near(1);
+pub const DEFAULT_DEPOSIT_VALIDATOR: NearToken = NearToken::from_near(10);
+pub const DEFAULT_DEPOSIT_PROTOCOL: NearToken = NearToken::from_near(5);
+pub const DEFAULT_MESSAGE_TO_REQUEST: &str = "Should we add this new NFT to our protocol?";
+pub const DEFAULT_REQUEST_ID: &str = "73ead60176d724e462dbfa8d49506177bb13bec748cf5af5019b6d1da63e204b";
+pub const DEFAULT_MINER_ANSWER: &str = "422fa60e22dc75c98d21bb975323c5c0b854d6b0b7a63d6446b3bbb628b65a5b";
+pub const DEFAULT_VALIDATOR_ANSWER: &str = "475e370cb76d086eb73e1a239ea10df551dc75a6596f61c7c2b473669570eb3b";
+pub const REVEAL_MINER_TIME: u64 = 100000000 + (4 * 60 * 1_000_000_000);
+pub const COMMIT_VALIDATOR_TIME: u64 = 100000000 + (7 * 60 * 1_000_000_000);
+pub const REVEAL_VALIDATOR_TIME: u64 = 100000000 + (8 * 60 * 1_000_000_000);
+pub const REVEAL_TOPTEN_TIME: u64 = 100000000 + (10 * 60 * 1_000_000_000);
+pub const DEFAULT_CULTURE: &str = "Governance decision";

@@ -1,0 +1,10 @@
+# Build files
+target
+
+# Code Editor related files
+.idea
+.vscode
+
+# Local files
+TODO.md
+.DS_Store
