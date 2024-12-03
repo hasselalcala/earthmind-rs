@@ -49,6 +49,7 @@ cargo near deploy <account-id>
 ## Earthmind Near Client
 
 - [Client implementation](https://github.com/hasselalcala/earthmind-near-client)
+- [Client implementatin using Near Event Listener Framework](https://github.com/hasselalcala/earthmind_client_using_framework)
 
 ## Useful Links
 - [Rust](https://www.rust-lang.org/learn) - Documentation
